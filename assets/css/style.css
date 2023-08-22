@@ -1,13 +1,5 @@
-/**
-* Template Name: Personal
-* Updated: Jul 27 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# General
+/* # General
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
@@ -1166,7 +1158,7 @@ section .container {
   left: 0;
   bottom: 0;
   padding: 15px;
-  text-align: right;
+  text-align: center;
   font-size: 13px;
   color: #fff;
   z-index: 999999;
