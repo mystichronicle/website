@@ -1,4 +1,4 @@
 # website
 This is my personal website.
 
-Live at https://debjit-mandal.is-a.dev
+Live at https://debjit-mandal.com
