@@ -1173,21 +1173,6 @@ section .container {
 }
 
 /*--------------------------------------------------------------
-# Visitor Counter
---------------------------------------------------------------*/
-#visitor-counter {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: rgba(255, 255, 255, 0.336);
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  z-index: 1000;
-}
-
-/*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
 @media (max-width: 992px) {
@@ -1195,19 +1180,5 @@ section .container {
     text-align: center;
     padding: 10px;
     background: rgba(0, 0, 0, 0.8);
-  }
-}
-
-@media (max-width: 992px) {
-  #visitor-counter {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 1000;
   }
 }
