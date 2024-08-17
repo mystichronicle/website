@@ -1172,6 +1172,45 @@ section .container {
   color: #fff;
 }
 
+.view-cli-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #1f1f1f; /* Darker shade for modern look */
+  border: 2px solid #64b5f6; /* Border to add contrast */
+  color: #ffffff; /* Modern light blue text */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600; /* Bold font for emphasis */
+  cursor: pointer;
+  border-radius: 8px; /* Smooth, rounded corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition effects */
+  z-index: 1000;
+}
+
+.view-cli-btn:hover {
+  background-color: #64b5f6; /* Invert colors on hover */
+  color: #1f1f1f; /* Dark text on light blue background */
+  border-color: #1f1f1f; /* Darker border on hover */
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3); /* Slightly deeper shadow */
+}
+
+.view-cli-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .view-cli-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      top: 10px;
+      right: 10px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
