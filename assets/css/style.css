@@ -1016,3 +1016,13 @@ section .container {
   opacity: 0;
   pointer-events: none;
 }
+
+@media (max-width: 988px) {
+  .view-cli-btn {
+    top: 10px;
+    right: auto;
+    left: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
