@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -141,17 +141,19 @@
         <div class="row">
           <div class="col-12 pt-2 pt-lg-0 content" data-aos="fade-left">
             <h5 class="fst-italic">
-              Hi, This is Debjit. I’m studying Computer Science at KIIT in
+              Hey—This is Debjit. I’m studying Computer Science at KIIT in
               Bhubaneswar. I work mostly with Python and I love data science.
-              When I’m not coding, I try small projects, read about new tech, or
-              go to meetups to learn from others. I like learning by doing — if
-              something’s interesting, I jump in and build it.
+              When I’m not coding, I try small projects, read about new tech,
+              or go to meetups to learn from others. I like learning by doing —
+              if something’s interesting, I jump in and build it.
             </h5>
           </div>
         </div>
       </div>
     </section>
     <!-- End About Section -->
+
+
 
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
@@ -663,6 +665,8 @@
     </section>
     <!-- End Achievements Section -->
 
+    
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -747,7 +751,7 @@
       async function fetchProjects() {
         try {
           const response = await fetch(
-            "https://api.github.com/users/mystichronicle/repos?per_page=150&sort=created&direction=desc",
+            "https://api.github.com/users/mystichronicle/repos?per_page=150&sort=created&direction=desc"
           );
           const repos = await response.json();
           displayProjects(repos);
@@ -779,7 +783,7 @@
 
       function filterProjects(repos, query) {
         const filteredRepos = repos.filter((repo) =>
-          repo.name.toLowerCase().includes(query.toLowerCase()),
+          repo.name.toLowerCase().includes(query.toLowerCase())
         );
         displayProjects(filteredRepos);
       }
@@ -791,7 +795,7 @@
     <script>
       let currentAchievementIndex = 0;
       const achievementImages = Array.from(
-        document.querySelectorAll(".achievements img"),
+        document.querySelectorAll(".achievements img")
       );
 
       function openAchievementModal(element, index) {
