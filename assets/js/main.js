@@ -212,22 +212,20 @@
 
   });
 
-  // Add this code for button visibility control
+  // Button visibility control
   document.addEventListener("DOMContentLoaded", function () {
     const viewCliBtn = document.querySelector('.view-cli-btn');
     const sections = ['#about', '#portfolio', '#contact'];
 
-    // Function to hide the button
     function hideButton() {
       viewCliBtn.style.display = 'none';
     }
 
-    // Function to show the button
     function showButton() {
       viewCliBtn.style.display = 'block';
     }
 
-    // Add event listeners to navigation links
+    // Event listeners to navigation links
     sections.forEach(section => {
       const navLink = document.querySelector(`a[href="${section}"]`);
       if (navLink) {
