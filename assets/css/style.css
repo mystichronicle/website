@@ -37,7 +37,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -73,7 +78,9 @@ h1, h2, h3, h4, h5, h6 {
   animation: typed-blink 0.7s infinite;
 }
 @keyframes typed-blink {
-  50% { opacity: 0.0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 #header.header-top h1 .typewriter-name {
@@ -555,7 +562,12 @@ section .container {
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,123,255,0.7) 50%, rgba(0,123,255,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 123, 255, 1) 0%,
+    rgba(0, 123, 255, 0.7) 50%,
+    rgba(0, 123, 255, 1) 100%
+  );
   transition: width 0.3s;
 }
 
@@ -960,8 +972,12 @@ section .container {
 }
 
 @keyframes animate-loading {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*--------------------------------------------------------------
