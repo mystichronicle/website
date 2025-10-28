@@ -52,6 +52,9 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
@@ -60,13 +63,18 @@
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="container">
-        <h1><a href="https://debjit.is-a.dev">Debjit Mandal</a></h1>
+        <h1>
+          <a href="https://debjit.is-a.dev" class="scrolled-name"
+            >Debjit Mandal</a
+          >
+          <span class="typewriter-name"></span>
+        </h1>
         <h2>
-          It’s my privilege to share my interests, stories, and skills with you.
-          <br />
-          Below you’ll find a sample of the many things I’ve done.
-          <br />
-          I really hope you’ll enjoy browsing my site and I'd love to hear your
+          I'm studying Computer Science at KIIT in Bhubaneswar. I work mostly
+          with Python and I love Data Science. When I'm not coding, I try small
+          projects, read about new tech, or go to meetups to learn from others.
+          It's my privilege to share my interests, stories, and skills with you.
+          I really hope you'll enjoy browsing my site and I'd love to hear your
           feedback.
         </h2>
         <button
@@ -78,7 +86,6 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link active" href="#header">Home</a></li>
-            <li><a class="nav-link" href="#about">About</a></li>
             <li><a class="nav-link" href="#resume">Resume</a></li>
             <li><a class="nav-link" href="#projects">Projects</a></li>
             <li><a class="nav-link" href="#achievements">Achievements</a></li>
@@ -131,29 +138,6 @@
       </div>
     </header>
     <!-- End Header -->
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="about-me container">
-        <div class="section-title">
-          <h2>About</h2>
-        </div>
-        <div class="row">
-          <div class="col-12 pt-2 pt-lg-0 content" data-aos="fade-left">
-            <h5 class="fst-italic">
-              Hi, This is Debjit. I’m studying Computer Science at KIIT in
-              Bhubaneswar. I work mostly with Python and I love data science.
-              When I’m not coding, I try small projects, read about new tech,
-              or go to meetups to learn from others. I like learning by doing —
-              if something’s interesting, I jump in and build it.
-            </h5>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End About Section -->
-
-
 
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
@@ -297,7 +281,7 @@
             <ul>
               <li>Registered on 20 February 2025; granted on 07 March 2025.</li>
               <li>
-                Co-held with Mr. Pritam Chakraborty, Mr. Nilotpall Basu, and Dr.
+                Co-held with Mr. Pritam Chakraborty, Mr. Nilotpal Basu, and Dr.
                 Anjan Bandyopadhyay.
               </li>
               <li>
@@ -665,8 +649,6 @@
     </section>
     <!-- End Achievements Section -->
 
-    
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -763,6 +745,27 @@
           console.error("Error fetching projects:", error);
         }
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchProjects();
+
+        // Typed.js initialization for typewriter effect
+        if (document.querySelector(".typewriter-name")) {
+          new Typed(".typewriter-name", {
+            strings: ["Hi, This is Debjit"],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: false,
+            showCursor: true,
+            cursorChar: "|",
+            startDelay: 500,
+            onComplete: function (self) {
+              // Hides the cursor when typing is done
+              self.cursor.style.display = "none";
+            },
+          });
+        }
+      });
 
       function displayProjects(repos) {
         const projectContainer = document.getElementById("projects-grid");
