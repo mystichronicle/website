@@ -138,91 +138,30 @@
     }
   });
 
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function (direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Portfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function (e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function (el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
-    }
-
-  });
-
   // Button visibility control
   document.addEventListener("DOMContentLoaded", function () {
     const viewCliBtn = document.querySelector('.view-cli-btn');
-    const sections = ['#about', '#portfolio', '#contact'];
+    
+    if (!viewCliBtn) return; 
+
+    // CLI button click handler
+    viewCliBtn.addEventListener('click', function() {
+      window.open('https://mystichronicle.github.io', '_blank', 'noopener,noreferrer');
+    });
+
+    // Hide button when navigating to sections
+    const sections = ['#resume', '#projects', '#contact'];
 
     function hideButton() {
-      viewCliBtn.style.display = 'none';
+      if (viewCliBtn) {
+        viewCliBtn.style.display = 'none';
+      }
     }
 
     function showButton() {
-      viewCliBtn.style.display = 'block';
+      if (viewCliBtn) {
+        viewCliBtn.style.display = 'block';
+      }
     }
 
     // Event listeners to navigation links
@@ -241,41 +180,114 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Fetch and display GitHub projects
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  async function fetchProjects() {
+    const projectContainer = document.getElementById("projects-grid");
+    if (!projectContainer) return;
+
+    // Show loading state
+    projectContainer.innerHTML = '<p style="text-align: center; color: #aaa;">Loading projects...</p>';
+
+    try {
+      const response = await fetch(
+        "https://api.github.com/users/mystichronicle/repos?per_page=150&sort=created&direction=desc"
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const repos = await response.json();
+      
+      if (!repos || repos.length === 0) {
+        projectContainer.innerHTML = '<p style="text-align: center; color: #aaa;">No projects found.</p>';
+        return;
+      }
+
+      displayProjects(repos);
+      
+      const searchInput = document.getElementById("search");
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          filterProjects(repos, searchInput.value);
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching projects:", error);
+      projectContainer.innerHTML = '<p style="text-align: center; color: #ff6b6b;">Failed to load projects. Please try again later.</p>';
+    }
+  }
+
+  function displayProjects(repos) {
+    const projectContainer = document.getElementById("projects-grid");
+    if (!projectContainer) return;
+    
+    if (!repos || repos.length === 0) {
+      projectContainer.innerHTML = '<p style="text-align: center; color: #aaa;">No projects found.</p>';
+      return;
+    }
+
+    projectContainer.innerHTML = "";
+    repos.forEach((repo) => {
+      const projectElement = document.createElement("div");
+      projectElement.className = "project";
+      
+      // Escape HTML to prevent XSS
+      const escapedName = escapeHtml(repo.name);
+      const escapedDescription = escapeHtml(repo.description || "No description available.");
+      const escapedUrl = escapeHtml(repo.html_url);
+      
+      projectElement.innerHTML = `
+        <h3>${escapedName}</h3>
+        <p>${escapedDescription}</p>
+        <a href="${escapedUrl}" target="_blank" rel="noopener noreferrer">
+          View Project <i class="fas fa-external-link-alt"></i>
+        </a>
+      `;
+      projectContainer.appendChild(projectElement);
+    });
+  }
+
+  function filterProjects(repos, query) {
+    const filteredRepos = repos.filter((repo) =>
+      repo.name.toLowerCase().includes(query.toLowerCase())
+    );
+    displayProjects(filteredRepos);
+  }
 
   /**
-   * Initiate portfolio details lightbox 
+   * Escape HTML to prevent XSS attacks
    */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
 
   /**
-   * Portfolio details slider
+   * Initialize Typed.js for typewriter effect
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+  document.addEventListener("DOMContentLoaded", () => {
+    // Fetch GitHub projects
+    fetchProjects();
+
+    // Typed.js initialization for typewriter effect
+    if (typeof Typed !== 'undefined' && document.querySelector(".typewriter-name")) {
+      new Typed(".typewriter-name", {
+        strings: ["Hi, This is Debjit"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: false,
+        showCursor: true,
+        cursorChar: "|",
+        startDelay: 500,
+        onComplete: function (self) {
+          // Hides the cursor when typing is done
+          self.cursor.style.display = "none";
+        },
+      });
     }
   });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
 
 })()
