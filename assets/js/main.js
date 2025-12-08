@@ -186,8 +186,13 @@
     const projectContainer = document.getElementById("projects-grid");
     if (!projectContainer) return;
 
-    // Show loading state
-    projectContainer.innerHTML = '<p style="text-align: center; color: #aaa;">Loading projects...</p>';
+    // Show loading spinner
+    projectContainer.innerHTML = `
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading projects...</p>
+      </div>
+    `;
 
     try {
       const response = await fetch(
@@ -242,7 +247,7 @@
         <h3>${escapedName}</h3>
         <p>${escapedDescription}</p>
         <a href="${escapedUrl}" target="_blank" rel="noopener noreferrer">
-          View Project <i class="fas fa-external-link-alt"></i>
+          View Project <i class="bi bi-box-arrow-up-right"></i>
         </a>
       `;
       projectContainer.appendChild(projectElement);
@@ -272,21 +277,77 @@
     // Fetch GitHub projects
     fetchProjects();
 
-    // Typed.js initialization for typewriter effect
-    if (typeof Typed !== 'undefined' && document.querySelector(".typewriter-name")) {
-      new Typed(".typewriter-name", {
-        strings: ["Hi, This is Debjit"],
-        typeSpeed: 100,
-        backSpeed: 50,
-        loop: false,
-        showCursor: true,
-        cursorChar: "|",
-        startDelay: 500,
-        onComplete: function (self) {
-          // Hides the cursor when typing is done
-          self.cursor.style.display = "none";
-        },
+    // Typed.js initialization for typewriter effect with fallback
+    const typewriterElement = document.querySelector(".typewriter-name");
+    
+    if (typewriterElement) {
+      if (typeof Typed !== 'undefined') {
+        try {
+          new Typed(".typewriter-name", {
+            strings: ["Hi, This is Debjit"],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: false,
+            showCursor: true,
+            cursorChar: "|",
+            startDelay: 500,
+            onComplete: function (self) {
+              // Hides the cursor when typing is done
+              self.cursor.style.display = "none";
+            },
+          });
+        } catch (error) {
+          console.warn("Typed.js error, using fallback:", error);
+          // Fallback: Just show the text directly
+          typewriterElement.textContent = "Hi, This is Debjit";
+        }
+      } else {
+        // Fallback if Typed.js is not loaded or blocked
+        console.warn("Typed.js not available, using fallback text");
+        typewriterElement.textContent = "Hi, This is Debjit";
+      }
+    }
+
+    // Back to top button functionality
+    const backToTopButton = document.getElementById("back-to-top");
+    
+    if (backToTopButton) {
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
       });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    // Footer visibility on scroll to bottom  
+    const footer = document.querySelector(".credits");
+    
+    function checkFooterVisibility() {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Show footer when user is within 100px of the bottom
+      if (windowHeight + scrollTop >= documentHeight - 100) {
+        if (footer) footer.classList.add("show");
+      } else {
+        if (footer) footer.classList.remove("show");
+      }
+    }
+
+    if (footer) {
+      window.addEventListener("scroll", checkFooterVisibility);
+      // Check on page load
+      checkFooterVisibility();
     }
   });
 
