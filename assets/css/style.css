@@ -758,7 +758,14 @@ section .container {
 
 @media (max-width: 768px) {
   .projects .search-icon {
-    transform: translateX(calc(-40vw + 20px));
+    left: calc(10% + 15px);
+    transform: none;
+  }
+  
+  .projects .search-container input[type="text"] {
+    width: 90%;
+    padding: 12px 15px 12px 45px;
+    font-size: 0.95em;
   }
 }
 
