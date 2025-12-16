@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------
+# Utility Classes
+--------------------------------------------------------------*/
+
+/* Focus Indicators (Accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.nav-link:focus {
+  outline: none;
+}
+
+/*--------------------------------------------------------------
+# Skip to Content Link (Accessibility)
+--------------------------------------------------------------*/
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  padding: 8px var(--spacing-base);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-speed);
+}
+
+.skip-to-content:focus {
+  top: 0;
+  outline: 3px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# Credits (Footer)
+--------------------------------------------------------------*/
+
+.credits {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: var(--spacing-md);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+  z-index: var(--z-credits);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
+
+.credits.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.credits a {
+  color: var(--color-primary);
+  transition: var(--transition-speed);
+}
+
+.credits a:hover {
+  color: var(--color-text-primary);
+}
+
+/*--------------------------------------------------------------
+# Visibility Helpers
+--------------------------------------------------------------*/
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*--------------------------------------------------------------
+# State Classes (for JS-generated content)
+--------------------------------------------------------------*/
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-light-gray);
+  padding: var(--spacing-2xl);
+  font-size: var(--font-size-base);
+}
+
+.error-state {
+  text-align: center;
+  color: var(--color-text-error);
+  padding: var(--spacing-2xl);
+  font-size: var(--font-size-base);
+}

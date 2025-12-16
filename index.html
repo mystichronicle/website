@@ -26,6 +26,12 @@
     <!-- Add Canonical URL -->
     <link rel="canonical" href="https://debjit.is-a.dev/" />
 
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://api.github.com" />
+    <link rel="preconnect" href="https://api.github.com" />
+
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
@@ -59,6 +65,7 @@
   </head>
 
   <body>
+    <a class="skip-to-content" href="#main-content">Skip to main content</a>
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="container">
@@ -86,51 +93,15 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
-        <div class="social-links" role="navigation" aria-label="Social media links">
-          <a href="https://github.com/mystichronicle" class="github" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer"
-            ><i class="bi bi-github" aria-hidden="true"></i
-          ></a>
-          <a href="https://x.com/mystichronicle" class="twitter" aria-label="X (Twitter) Profile" target="_blank" rel="noopener noreferrer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-twitter-x"
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-            >
-              <path
-                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-              />
-            </svg>
-          </a>
-          <a href="https://facebook.com/mystichronicle" class="facebook" aria-label="Facebook Profile" target="_blank" rel="noopener noreferrer"
-            ><i class="bi bi-facebook" aria-hidden="true"></i
-          ></a>
-          <a href="https://instagram.com/mystichronicle" class="instagram" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer"
-            ><i class="bi bi-instagram" aria-hidden="true"></i
-          ></a>
-          <a href="https://linkedin.com/in/mystichronicle" class="linkedin" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer"
-            ><i class="bi bi-linkedin" aria-hidden="true"></i
-          ></a>
-          <a
-            href="https://mastodon.social/@mystichronicle"
-            class="mastodon"
-            rel="me"
-            aria-label="Mastodon Profile"
-            target="_blank"
-          >
-            <i class="bi bi-mastodon" aria-hidden="true"></i>
-          </a>
-        </div>
+        <div data-component="social-links"></div>
       </div>
     </header>
     <!-- End Header -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
+    <main id="main-content">
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume">
+        <div class="container">
         <div class="section-title">
           <h2>Resume</h2>
         </div>
@@ -311,9 +282,9 @@
         </div>
       </div>
     </section>
-    <!-- ======= Projects Section ======= -->
-    <section id="projects" class="projects">
-      <div class="container">
+      <!-- ======= Projects Section ======= -->
+      <section id="projects" class="projects">
+        <div class="container">
         <div class="section-title">
           <h2>Projects</h2>
         </div>
@@ -327,9 +298,9 @@
       </div>
     </section>
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
         <div class="section-title">
           <h2>Contact</h2>
           <p>Contact Me</p>
@@ -339,49 +310,7 @@
             <div class="info-box">
               <i class="bx bx-share-alt" aria-hidden="true"></i>
               <h3>Social Profiles</h3>
-              <div class="social-links" role="navigation" aria-label="Social media links">
-                <a href="https://github.com/mystichronicle" class="github" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer"
-                  ><i class="bi bi-github" aria-hidden="true"></i
-                ></a>
-                <a href="https://x.com/mystichronicle" class="twitter" aria-label="X (Twitter) Profile" target="_blank" rel="noopener noreferrer">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-twitter-x"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                    />
-                  </svg>
-                </a>
-                <a href="https://facebook.com/mystichronicle" class="facebook" aria-label="Facebook Profile" target="_blank" rel="noopener noreferrer"
-                  ><i class="bi bi-facebook" aria-hidden="true"></i
-                ></a>
-                <a href="https://instagram.com/mystichronicle" class="instagram" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer"
-                  ><i class="bi bi-instagram" aria-hidden="true"></i
-                ></a>
-                <a
-                  href="https://linkedin.com/in/mystichronicle"
-                  class="linkedin"
-                  aria-label="LinkedIn Profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ><i class="bi bi-linkedin" aria-hidden="true"></i
-                ></a>
-                <a
-                  href="https://mastodon.social/@mystichronicle"
-                  class="mastodon"
-                  rel="me"
-                  aria-label="Mastodon Profile"
-                  target="_blank"
-                >
-                  <i class="bi bi-mastodon" aria-hidden="true"></i>
-                </a>
-              </div>
+              <div data-component="social-links"></div>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
@@ -396,9 +325,10 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- End Contact Section -->
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
@@ -414,7 +344,7 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
     <script
       src="//code.tidio.co/0qqax5v0xinj9uvke5hqwd4cosm67tav.js"
       async

@@ -1,0 +1,160 @@
+/*--------------------------------------------------------------
+# Navigation Menu Component
+--------------------------------------------------------------*/
+
+.navbar {
+  padding: 0;
+  margin-top: 35px;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar li + li {
+  margin-left: var(--spacing-xl);
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: var(--transition-speed);
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: var(--spacing-xs);
+}
+
+.navbar a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  visibility: hidden;
+  transition: all var(--transition-speed) var(--transition-base) 0s;
+}
+
+.navbar a:hover:before,
+.navbar li:hover > a:before,
+.navbar .active:before {
+  visibility: visible;
+  width: 25px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: var(--color-text-primary);
+}
+
+.mobile-nav-toggle {
+  color: var(--color-text-primary);
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: var(--transition-slow);
+  position: fixed;
+  right: var(--spacing-md);
+  top: var(--spacing-md);
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: var(--color-bg-overlay);
+  transition: var(--transition-speed);
+  z-index: var(--z-modal-backdrop);
+  margin-top: 0;
+  animation: slideIn var(--transition-speed) ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: var(--spacing-md);
+  bottom: 45px;
+  left: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  overflow-y: auto;
+  transition: var(--transition-speed);
+  border: 2px solid var(--color-border);
+}
+
+.navbar-mobile li {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border-hover);
+}
+
+.navbar-mobile li:last-child {
+  border-bottom: none;
+}
+
+.navbar-mobile li + li {
+  margin: 0;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  font-size: var(--font-size-base);
+  position: relative;
+}
+
+.mobile-nav-toggle:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+# Buttons Component
+--------------------------------------------------------------*/
+
+.btn-resume {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  transition: background-color var(--transition-speed);
+}
+
+.btn-resume:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-text-primary);
+}
+
+/*--------------------------------------------------------------
+# View CLI Button
+--------------------------------------------------------------*/
+
+.view-cli-btn {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background-color: #1f1f1f;
+  border: 2px solid var(--color-primary);
+  color: var(--color-text-primary);
+  padding: 12px 24px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-button);
+  transition: all var(--transition-speed) ease;
+  z-index: 1000;
+}
+
+.view-cli-btn:hover {
+  background-color: var(--color-primary);
+  color: #1f1f1f;
+  border-color: #1f1f1f;
+  box-shadow: var(--shadow-button-hover);
+}
+
+.view-cli-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 988px) {
+  .view-cli-btn {
+    top: var(--spacing-sm);
+    right: auto;
+    left: var(--spacing-sm);
+    padding: 8px var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to Top Button
+--------------------------------------------------------------*/
+
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  left: var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-speed) ease;
+  z-index: var(--z-back-to-top);
+  box-shadow: var(--shadow-primary);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-primary-hover);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:focus {
+  outline: 3px solid var(--color-text-primary);
+  outline-offset: 3px;
+}

@@ -1,0 +1,105 @@
+/* CSS Custom Properties (Variables)
+--------------------------------------------------------------*/
+
+:root {
+  /* Color Palette */
+  --color-primary: #64b5f6;
+  --color-primary-hover: #42a5f5;
+  --color-secondary: #4caf50;
+  --color-bg-dark: #040404;
+  --color-bg-overlay: rgba(0, 0, 0, 0.9);
+  --color-bg-card: #1e1e1e;
+  --color-bg-input: #2a2a2a;
+  --color-bg-input-focus: #333;
+  --color-text-primary: #fff;
+  --color-text-secondary: rgba(255, 255, 255, 0.95);
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-gray: #bdbdbd;
+  --color-text-light-gray: #aaaaaa;
+  --color-text-dark: #121212;
+  --color-text-error: #ff6b6b;
+  --color-border: rgba(255, 255, 255, 0.2);
+  --color-border-hover: rgba(255, 255, 255, 0.1);
+  
+  /* Typography */
+  --font-primary: "Open Sans", sans-serif;
+  --font-heading: "Raleway", sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  
+  /* Font Sizes */
+  --font-size-xs: 13px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 48px;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-2xl: 40px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 30px;
+  --radius-full: 50%;
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-fast: 0.15s;
+  --transition-slow: 0.5s;
+  --transition-base: ease-in-out;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7);
+  --shadow-button: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-button-hover: 0px 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-primary: 0 4px 12px rgba(100, 181, 246, 0.3);
+  --shadow-primary-hover: 0 6px 16px rgba(100, 181, 246, 0.5);
+  
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 100;
+  --z-fixed: 997;
+  --z-modal-backdrop: 999;
+  --z-modal: 999998;
+  --z-back-to-top: 999998;
+  --z-credits: 999999;
+  --z-tooltip: 1000000;
+  
+  /* Component-specific */
+  --project-border-accent: 5px;
+  --search-debounce: 300ms;
+  
+  /* Layout */
+  --header-height: 80px;
+  --header-height-mobile: 60px;
+  --section-top: 100px;
+  --section-top-mobile: 80px;
+  --container-padding: 30px;
+  --container-padding-mobile: 15px;
+  
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 992px;
+  --breakpoint-desktop: 1024px;
+}
